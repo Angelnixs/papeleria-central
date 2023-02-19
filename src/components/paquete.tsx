@@ -14,7 +14,7 @@ export default function Paquete(props: any) {
   } = props;
 
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: '18rem', marginBottom: '30px' }}>
       <Card.Img variant="top" src={ img } />
       <Card.Body>
         <Card.Title>{ name }</Card.Title>

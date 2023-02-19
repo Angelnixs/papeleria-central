@@ -19,8 +19,8 @@ export default function Header() {
           <Nav.Link href="/login" className='d-menu-show-mobile'>Iniciar Sesión</Nav.Link>
         </Nav>
       </Navbar.Collapse>
-      <Dropdown className="mx-2 d-menu-hide-mobile me-3 pointer" autoClose="outside" as="a">
-        <Dropdown.Toggle id="cart-menu" className="icon" as="a">
+      <Dropdown className="mx-2 d-menu-hide-mobile me-3 pointer" autoClose="outside">
+        <Dropdown.Toggle id="cart-menu" className="icon">
           <i className="bi bi-cart4"></i>
         </Dropdown.Toggle>
         <Dropdown.Menu align="end">
@@ -31,8 +31,8 @@ export default function Header() {
           <Dropdown.ItemText><Button variant="dark" as="a" href="/carrito">Ir A Carrito</Button></Dropdown.ItemText>
         </Dropdown.Menu>
       </Dropdown>
-      <Dropdown className="mx-2 d-menu-hide-mobile me-5 pointer" autoClose="outside" as="a">
-        <Dropdown.Toggle id="user-menu" className="icon" as="a">
+      <Dropdown className="mx-2 d-menu-hide-mobile me-5 pointer" autoClose="outside">
+        <Dropdown.Toggle id="user-menu" className="icon">
           <i className="bi bi-person-fill"></i>
         </Dropdown.Toggle>
         <Dropdown.Menu align="end">

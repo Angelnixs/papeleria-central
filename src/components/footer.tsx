@@ -3,9 +3,12 @@ import  {
   Row,
   Col,
   Button,
+  Image,
 } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPhone } from '@fortawesome/free-solid-svg-icons'
+import { faPhone, faMapMarker, faClock } from '@fortawesome/free-solid-svg-icons'
+import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import '../assets/styles/footer.css'
 
 export default function Footer() {
   return (
@@ -14,21 +17,25 @@ export default function Footer() {
         <Container>
           <Row>
             <Col md={6} lg={3}>
-              <h3>Lorem Ipsum dummy text </h3>
+              <h2>Papelería Central</h2>
               <ul>
-                <li><a href="tel:(010) 1234 4321"><FontAwesomeIcon icon={faPhone} />(010) 1234 4321</a></li>
-                <li><i className="fas fa-map-marker-alt"></i>
+                <li className="contact">
+                  <FontAwesomeIcon icon={faPhone} />
+                  <a href="tel:(010) 1234 4321">(010) 1234 4321</a>
+                </li>
+                <li className="contact"><FontAwesomeIcon icon={faMapMarker} />
                   1 / 105 Bay Lights,
                   <br/>Lorem Ipsum,
                   <br/>LIC 3201
                 </li>
               </ul>
-              <Button variant="primary">Contactanos</Button>
+              <Button variant="danger">Contactanos</Button>
             </Col>
             <Col md={6} lg={2}>
               <div>
                 <h4>Page links</h4>
               </div>
+              <hr className="red" />
               <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
@@ -39,55 +46,50 @@ export default function Footer() {
             </Col>
             <Col md={6} lg={3}>
               <div className="footer-title">
-                  <h4>More Info</h4>
+                <h4>More Info</h4>
               </div>
+              <hr className="red" />
               <ul>
-                  <li><a href="#">Lorem ipsum</a></li>
-                  <li><a href="#">Dolor sit amet</a></li>
-                  <li><a href="#">Consectetur Adipisicing </a></li>
-                  <li><a href="#">Ed do eiusmod tempor incididunt</a></li>
+                <li><a href="#">Lorem ipsum</a></li>
+                <li><a href="#">Dolor sit amet</a></li>
+                <li><a href="#">Consectetur Adipisicing </a></li>
+                <li><a href="#">Ed do eiusmod tempor incididunt</a></li>
               </ul>
             </Col>
             <Col md={6} lg={4}>
-              <div>
+              <div className="open-hours">
                 <h4>Open hours</h4>
-                <ul>
-                  <li><a href="" target="_blank"><i className="fab fa-facebook-f"></i></a></li>
-                  <li><a href="" target="_blank"><i className="fab fa-instagram"></i></a></li>
-                  <li><a href="" target="_blank"><i className="fab fa-linkedin-in"></i></a></li>
-
+                <ul className="social-media">
+                  <li><a href="" target="_blank"><FontAwesomeIcon icon={faFacebook} /></a></li>
+                  <li><a href="" target="_blank"><FontAwesomeIcon icon={faInstagram} /></a></li>
+                  <li><a href="" target="_blank"><FontAwesomeIcon icon={faTwitter} /></a></li>
                 </ul>
               </div>
+              <hr className="red" />
               <table>
-                  <tbody>
-                      <tr>
-                          <td><i className="far fa-clock"></i>Monday Thursday</td>
-                          <td>9:00am - 5:00pm</td>
-                      </tr>
-                      <tr>
-                          <td><i className="far fa-clock"></i>Friday</td>
-                          <td>9:00am - 4:00pm</td>
-                      </tr>
-                      <tr>
-                          <td><i className="far fa-clock"></i>Sturday</td>
-                          <td>9:00am - 1:30pm</td>
-                      </tr>
-                      <tr>
-                          <td><i className="far fa-clock"></i>Sunday</td>
-                          <td>9:30am - 12:00pm</td>
-                      </tr>
-                  </tbody>
+                <tbody>
+                  <tr>
+                    <td><FontAwesomeIcon icon={faClock} /></td>
+                    <td>Lunes a Viernes</td>
+                    <td>9:00am - 5:00pm</td>
+                  </tr>
+                  <tr>
+                    <td><FontAwesomeIcon icon={faClock} /></td>
+                    <td>Sabado</td>
+                    <td>9:00am - 4:00pm</td>
+                  </tr>
+                </tbody>
               </table>
               <hr />
               <div>
                 <table>
                   <tbody>
                     <tr>
-                      <td><img src="https://i.ibb.co/vxc577d/dummy-logo3.jpg" /></td>
-                      <td><img src="https://i.ibb.co/vxc577d/dummy-logo3.jpg" /></td>
-                      <td><img src="https://i.ibb.co/vxc577d/dummy-logo3.jpg" /></td>
-                      <td><img src="https://i.ibb.co/vxc577d/dummy-logo3.jpg" /></td>
-                      <td><img src="https://i.ibb.co/vxc577d/dummy-logo3.jpg"/></td>
+                      <td><Image src="https://i.ibb.co/vxc577d/dummy-logo3.jpg" fluid/></td>
+                      <td><Image src="https://i.ibb.co/vxc577d/dummy-logo3.jpg" fluid/></td>
+                      <td><Image src="https://i.ibb.co/vxc577d/dummy-logo3.jpg" fluid/></td>
+                      <td><Image src="https://i.ibb.co/vxc577d/dummy-logo3.jpg" fluid/></td>
+                      <td><Image src="https://i.ibb.co/vxc577d/dummy-logo3.jpg" fluid/></td>
                     </tr>
                   </tbody>
                 </table>
@@ -100,7 +102,7 @@ export default function Footer() {
               <a href="">Privacy policy</a>
             </Col>
             <Col sm={8}>
-              <p>Lorem ipsum dolor sit amet @ 2019 All rights reserved</p>
+              <p className="reserved">Lorem ipsum dolor sit amet @ 2019 All rights reserved</p>
             </Col>
           </Row>
         </Container>

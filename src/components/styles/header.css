@@ -1,16 +1,4 @@
-.cart.dropdown-toggle::after {
-    display: inline-block;
-    margin-left: 0em;
-    vertical-align: 0em;
-    content: url("../../node_modules/bootstrap-icons/icons/cart4.svg");
-    border-top: none;
-    border-right: none;
-    border-bottom: 0;
-    border-left: none;
-    transform: scale(1.2);
-    color: white;
-}
-.user.dropdown-toggle::after {
+.icon.dropdown-toggle::after {
     display: inline-block;
     margin-left: 0em;
     vertical-align: 0em;
@@ -20,24 +8,24 @@
     border-bottom: 0;
     border-left: none;
 }
-.user i {
+.icon i {
     font-size: 22px;
     color:#9b9d8c;
 }
 .nav-min-height{
     min-height: 4rem;
 }
-.d-menu-show{
+.d-menu-show-mobile{
     display: none;
 }
 .pointer{
     cursor: pointer;
 }
 @media only screen and (max-width: 992px){
-    .d-menu-show{
+    .d-menu-show-mobile{
         display: block !important;
     }
-    .d-menu-hide{
+    .d-menu-hide-mobile{
         display: none;
     }
 }

@@ -4,7 +4,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import './index.css'
+// import './index.css'
 import Home from "./routes/home";
 import Carrito from "./routes/carrito";
 import Checkout from "./routes/checkout";
@@ -13,6 +13,8 @@ import Login from './routes/login';
 import Paquete from './routes/paquete';
 import Pedido from './routes/admin/pedido';
 import Pedidos from './routes/admin/pedidos';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from "./components/header";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +46,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
+    <Header />
     <RouterProvider router={router} />
   </React.StrictMode>
 )

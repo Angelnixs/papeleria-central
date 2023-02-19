@@ -14,6 +14,7 @@ import Paquete from './routes/paquete';
 import Pedido from './routes/admin/pedido';
 import Pedidos from './routes/admin/pedidos';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import Header from "./components/header";
 
 const router = createBrowserRouter([

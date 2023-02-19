@@ -16,6 +16,8 @@ import Pedidos from './routes/admin/pedidos';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Header from "./components/header";
+import Footer from "./components/footer";
+import { RecoilRoot } from 'recoil';
 
 const router = createBrowserRouter([
   {
@@ -47,7 +49,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <Header />
-    <RouterProvider router={router} />
+    <RecoilRoot>
+      <Header />
+      <RouterProvider router={router} />
+      <Footer />
+    </RecoilRoot>
   </React.StrictMode>
 )

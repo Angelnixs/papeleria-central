@@ -3,11 +3,11 @@
   justify-content: space-between;
 }
 
-h5 {
+.cart h5 {
   text-align: right;
 }
 
-hr {
+.cart hr {
   width: 95%!important;
   margin: 20px auto!important;
   opacity: 0.5;

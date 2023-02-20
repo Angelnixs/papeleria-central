@@ -33,7 +33,7 @@ export default function Carrito() {
 
   return (
     <>
-      <Container style={{ margin: '100px auto '}}>
+      <Container className='cart' style={{ margin: '100px auto '}}>
         <Row>
           <Col xs={12} sm={7}>
             <Card>

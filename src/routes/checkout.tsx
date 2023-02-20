@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import {Tab, Container, Row, Col, Nav, Button} from 'react-bootstrap';
+import { Tab, Container, Row, Col, Nav, Button } from 'react-bootstrap';
 import FormAddress from '../components/checkout/formAddress'
 import Payments from '../components/checkout/payments'
 import Confirm from '../components/checkout/confirmOrder'
-import '../components/checkout/styles.css'
+import '../assets/styles/checkout.css'
 
 export default function Checkout() {
   const [panel1, setPanel1] = useState(true)

@@ -19,7 +19,7 @@ export default function Paquete(props: any) {
       <Card.Body>
         <Card.Title>{ name }</Card.Title>
         <Card.Text> { desc }</Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Button variant="primary">Agregar al Carrito</Button>
       </Card.Body>
     </Card>
   );

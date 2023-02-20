@@ -7,7 +7,7 @@ import "./styles/header.css"
 
 export default function Header() {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" sticky="top" className="nav-min-height">
+    <Navbar bg="dark" variant="dark" expand="lg" sticky="top" className="nav-min-height" style={{ marginBottom: '40px' }}>
       <Navbar.Brand href="/" className="ms-4">
         <img alt="" src="/pylc.png" width="40" height="40" className="d-inline-block align-top"/>
       </Navbar.Brand>

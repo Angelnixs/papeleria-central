@@ -10,7 +10,7 @@ import Carrito from "./routes/carrito";
 import Checkout from "./routes/checkout";
 import ListaPaquetes from "./routes/listaPaquetes";
 import Login from './routes/login';
-import Paquete from './routes/paquete';
+import PaqueteView from './routes/paqueteView';
 import Pedido from './routes/admin/pedido';
 import Pedidos from './routes/admin/pedidos';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -36,8 +36,8 @@ const router = createBrowserRouter([
     path: "/listaPaquetes",
     element: <ListaPaquetes  />,
   }, {
-    path: "/paquete",
-    element: <Paquete  />,
+    path: "/paquete/:id",
+    element: <PaqueteView  />,
   }, {
     path: "/pedido",
     element: <Pedido  />,

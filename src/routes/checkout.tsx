@@ -20,7 +20,7 @@ export default function Checkout() {
   }
 
   return (
-    <Container className="mt-5 mb-5">
+    <Container className="mt-5 mb-5 shadowBox">
       <Tab.Container id="left-tabs-example" >
         <Row className='tab-style'>
           <Col sm={12}>

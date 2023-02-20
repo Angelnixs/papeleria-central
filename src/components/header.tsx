@@ -20,7 +20,7 @@ export default function Header() {
         </Nav>
       </Navbar.Collapse>
       <Dropdown className="mx-2 d-menu-hide-mobile me-3 pointer" autoClose="outside">
-        <Dropdown.Toggle id="cart-menu" className="icon">
+        <Dropdown.Toggle id="cart-menu" className="icon" as="div">
           <i className="bi bi-cart4"></i>
         </Dropdown.Toggle>
         <Dropdown.Menu align="end">
@@ -32,7 +32,7 @@ export default function Header() {
         </Dropdown.Menu>
       </Dropdown>
       <Dropdown className="mx-2 d-menu-hide-mobile me-5 pointer" autoClose="outside">
-        <Dropdown.Toggle id="user-menu" className="icon">
+        <Dropdown.Toggle id="user-menu" className="icon" as="div">
           <i className="bi bi-person-fill"></i>
         </Dropdown.Toggle>
         <Dropdown.Menu align="end">

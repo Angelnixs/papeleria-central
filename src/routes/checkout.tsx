@@ -6,17 +6,18 @@ import Confirm from '../components/checkout/confirmOrder'
 import '../assets/styles/checkout.css'
 
 export default function Checkout() {
-  const [panel1, setPanel1] = useState(true)
-  const [panel2, setPanel2] = useState(false)
-  const [panel3, setPanel3] = useState(false)
+  const [activePanel, setActivePanel] = useState({
+    address:true,
+    payment:false,
+    order:false
+  })
 
-  const activePanel = (panel: string) => {
-    setPanel1(false)
-    setPanel2(false)
-    setPanel3(false)
-    if(panel === "1") setPanel1(true)
-    if(panel === "2") setPanel2(true)
-    if(panel === "3") setPanel3(true)
+  const panelHandler = (panel: string) => {
+    setActivePanel({
+      address: panel === "address",
+      payment: panel === "payment",
+      order: panel === "order"
+    })
   }
 
   return (
@@ -26,57 +27,57 @@ export default function Checkout() {
           <Col sm={12}>
             <Nav variant="pills" className="justify-content-center">
               <Nav.Item>
-                <Nav.Link eventKey="address" active={panel1}>Dirección de entrega</Nav.Link>
+                <Nav.Link eventKey="address" active={activePanel.address}>Dirección de entrega</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="payment" active={panel2}>Método de pago</Nav.Link>
+                <Nav.Link eventKey="payment" active={activePanel.payment}>Método de pago</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="order" active={panel3}>Confirmar pedido</Nav.Link>
+                <Nav.Link eventKey="order" active={activePanel.order}>Confirmar pedido</Nav.Link>
               </Nav.Item>
             </Nav>
           </Col>
           <Col sm={12}>
             <Tab.Content>
-              <Tab.Pane eventKey="address" className='m-3' active={panel1}>
+              <Tab.Pane eventKey="address" className='m-3' active={activePanel.address}>
                 <FormAddress />
                 <Row className='mt-3'>
                   <Col className="justify-content-end d-flex">
-                    <Button variant="primary" onClick={()=>activePanel("2")}>
+                    <Button variant="primary" onClick={()=>panelHandler("payment")}>
                       Siguiente
                       <i className="bi bi-caret-right-fill"></i>
                     </Button>     				
                   </Col>	
                 </Row>
               </Tab.Pane>
-              <Tab.Pane eventKey="payment" className='m-3' active={panel2}>
+              <Tab.Pane eventKey="payment" className='m-3' active={activePanel.payment}>
                 <Payments />
                 <Row className='mt-3'>
                   <Col className="justify-content-start d-flex">
-                    <Button variant="primary" onClick={()=>activePanel("1")}>
+                    <Button variant="primary" onClick={()=>panelHandler("address")}>
                       <i className="bi bi-caret-left-fill"></i>
                       Volver
                     </Button>     				
                   </Col>	
                   <Col className="justify-content-end d-flex">
-                    <Button variant="primary" onClick={()=>activePanel("3")}>
+                    <Button variant="primary" onClick={()=>panelHandler("order")}>
                       Siguiente
                       <i className="bi bi-caret-right-fill"></i>
                     </Button>     				
                   </Col>	
                 </Row>
               </Tab.Pane>
-              <Tab.Pane eventKey="order" className='m-3' active={panel3}>
+              <Tab.Pane eventKey="order" className='m-3' active={activePanel.order}>
                 <Confirm />
                 <Row className='mt-3'>
                   <Col className="justify-content-start d-flex">
-                    <Button variant="primary" onClick={()=>activePanel("2")}>
+                    <Button variant="primary" onClick={()=>panelHandler("payment")}>
                       <i className="bi bi-caret-left-fill"></i>
                       Volver
                     </Button>     				
                   </Col>	
                   <Col className="justify-content-end d-flex">
-                    <Button variant="success" onClick={()=>activePanel("3")}>
+                    <Button variant="success" onClick={()=>panelHandler("order")}>
                       Realizar Pedido                      
                     </Button>     				
                   </Col>	
@@ -88,8 +89,4 @@ export default function Checkout() {
       </Tab.Container>   
     </Container>
   );
-}
-
-function tabContent (){
-  
 }

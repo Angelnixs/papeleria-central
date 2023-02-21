@@ -7,9 +7,11 @@ import HomeCarousel from '../components/home/homeCarousel';
 import Paquete from '../components/paquete';
 import { useRecoilState } from 'recoil';
 import { paquetesState } from '../atoms';
+import { FC } from 'react';
+import PaqueteType from '../interfaces/paquete';
 
-export default function Home() {
-  const [paquetes, setPaquetes] = useRecoilState(paquetesState);
+const Home:FC = () => {
+  const [paquetes, setPaquetes] = useRecoilState<any[]>(paquetesState);
 
   return (
     <>
@@ -22,7 +24,7 @@ export default function Home() {
         </Row>
         <Row>
           { 
-            paquetes.map((p, i) => (
+            paquetes.map((p: PaqueteType, i: number) => (
               <Col xs={12} md={6} lg={3} key={i}>
                 <Paquete
                   name={p.name}
@@ -37,3 +39,5 @@ export default function Home() {
     </>
   );
 }
+
+export default Home;

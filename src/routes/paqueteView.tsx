@@ -10,9 +10,11 @@ import { useParams } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { paquetesState } from '../atoms';
 import Paquete from '../components/paquete';
+import PaqueteType from '../interfaces/paquete';
+import { FC } from 'react';
 
-export default function PaqueteView(props: any) {
-  const [paquetes, setPaquetes] = useRecoilState(paquetesState);
+const PaqueteView:FC = () => {
+  const [paquetes, setPaquetes] = useRecoilState<any[]>(paquetesState);
   let { id } = useParams();
 
   // axios.get(`http://localhost:3001/paquetes/${id}`).then((res) => {
@@ -50,7 +52,7 @@ export default function PaqueteView(props: any) {
             <h2>Productos Similares</h2>
           </Col>
           {
-            paquetes.map((p, i) => (
+            paquetes.map((p: PaqueteType, i: number) => (
               <Col xs={12} md={6} lg={3} key={i}>
                 <Paquete
                   name={p.name}
@@ -65,3 +67,5 @@ export default function PaqueteView(props: any) {
     </>
   );
 }
+
+export default PaqueteView;

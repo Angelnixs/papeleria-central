@@ -10,17 +10,18 @@ import  {
 } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClose } from '@fortawesome/free-solid-svg-icons'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FC } from 'react';
 import '../assets/styles/carrito.css'
+import PaqueteType from '../interfaces/paquete';
 
-export default function Carrito() {
-  const [productos, setProductos] = useRecoilState(carritoState);
-  const [total, setTotal] = useState(0);
+
+const Carrito:FC = () => {
+  const [productos, setProductos] = useRecoilState<PaqueteType[]>(carritoState);
+  const [total, setTotal] = useState<Number>(0);
 
   useEffect(() => {
     let total = 0;
-    console.log(productos)
-    productos.forEach((p: any) => {
+    productos.forEach((p: PaqueteType) => {
       total += p.price;
     });
 
@@ -40,7 +41,7 @@ export default function Carrito() {
               <Card.Body>
                 <h1>Carrito</h1>
                 {
-                  productos.map((p: any, i: number) => (
+                  productos.map((p: PaqueteType, i: number) => (
                     <Row key={i}>
                       <hr />
                       <Col sm={4}>
@@ -59,7 +60,7 @@ export default function Carrito() {
                     </Row>
                   ))
                 }
-                <h5>Subtotal: ${ total }.00 MXN</h5>
+                <h5><>Subtotal: ${ total }.00 MXN</></h5>
               </Card.Body> 
             </Card>
           </Col>
@@ -70,7 +71,7 @@ export default function Carrito() {
                 <hr />
                 <div className="subtotal">
                   <h4>Subtotal</h4>
-                  <h4>${ total }.00 MXN</h4>
+                  <h4><>${ total }.00 MXN</></h4>
                 </div>
                 <div className="subtotal">
                   <h4>Entrega</h4>
@@ -86,3 +87,5 @@ export default function Carrito() {
     </>
   );
 }
+
+export default Carrito;

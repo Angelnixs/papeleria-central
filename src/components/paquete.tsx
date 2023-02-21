@@ -4,13 +4,14 @@ import {
   Button,
 } from 'react-bootstrap'
 
-export default function Paquete(props: any) {
+const Paquete = (props: any) => {
   const {
+    id,
     name,
     img,
     price,
     desc,
-    items,
+    productos,
   } = props;
 
   return (
@@ -24,3 +25,5 @@ export default function Paquete(props: any) {
     </Card>
   );
 }
+
+export default Paquete;

@@ -1,7 +1,8 @@
+import { FC } from 'react';
 import { Nav, Navbar, Dropdown, Button } from 'react-bootstrap';
 import "../assets/styles/header.css"
 
-export default function Header() {
+const Header:FC = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" sticky="top" className="nav-min-height" style={{ marginBottom: '40px' }}>
       <Navbar.Brand href="/" className="ms-4">
@@ -38,3 +39,5 @@ export default function Header() {
     </Navbar>
   );
 }
+
+export default Header;

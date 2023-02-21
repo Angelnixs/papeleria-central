@@ -9,8 +9,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhone, faMapMarker, faClock } from '@fortawesome/free-solid-svg-icons'
 import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import '../assets/styles/footer.css'
+import { FC } from 'react';
 
-export default function Footer() {
+const Footer:FC = () => {
   return (
     <>
       <footer>
@@ -110,3 +111,5 @@ export default function Footer() {
     </>
   );
 }
+
+export default Footer;

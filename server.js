@@ -17,6 +17,10 @@ var options = {
 }
 app.use(express.static('build', options))
 
+app.get('/', function (req, res, next) {
+    res.render('index.html');
+})
+
 const port = process.env.PORT || 3000
 
 app.listen(port, () => {

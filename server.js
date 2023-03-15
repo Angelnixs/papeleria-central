@@ -10,16 +10,12 @@ const app = express()
 var options = {
   dotfiles: 'ignore',
   etag: false,
-  extensions: ['htm', 'html','css','js','ico','jpg','jpeg','png','svg'],
+  extensions: ['htm', 'html','css','js','ico','jpg','jpeg','png','svg',"tsx"],
   index: ['index.html'],
   maxAge: '1m',
   redirect: false
 }
 app.use(express.static('build', options))
-
-app.get('/', function (req, res, next) {
-    res.render('index.html');
-})
 
 const port = process.env.PORT || 3000
 

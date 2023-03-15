@@ -17,6 +17,11 @@ var options = {
 }
 app.use(express.static('dist', options))
 
+// Handles any requests that don't match the ones above
+app.get('*', (req,res) =>{
+    res.sendFile(path.join(__dirname+'/client/dist/index.html'));
+});
+
 const port = process.env.PORT || 3000
 
 app.listen(port, () => {

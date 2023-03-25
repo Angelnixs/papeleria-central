@@ -39,10 +39,10 @@ const router = createBrowserRouter([
     path: "/paquete/:id",
     element: <PaqueteView  />,
   }, {
-    path: "/pedido",
+    path: "/admin/pedido",
     element: <Pedido  />,
   }, {
-    path: "/pedidos",
+    path: "/admin/pedidos",
     element: <Pedidos  />,
   }
 ])

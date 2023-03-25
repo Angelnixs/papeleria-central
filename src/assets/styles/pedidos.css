@@ -1,0 +1,16 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  border: 1px solid #333;
+  max-width: 90%;
+}
+
+th, td {
+  padding: 10px 20px;
+}
+
+tr {
+  border-bottom: 1px solid #333;
+}

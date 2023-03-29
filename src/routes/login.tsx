@@ -17,9 +17,11 @@ export default function Login() {
       email: email,
       password: password
     }).then((res: any)=>{
-      console.log(res.data.token);
       document.cookie = "session" + "=" + (res.data.token || "") + "; path=/";
       window.location.href = '/';
+    }).catch((err: any)=>{
+      alert(err.response.data.message)
+      console.log(err.response.data.message);
     })
   }
 

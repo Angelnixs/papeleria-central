@@ -1,5 +1,18 @@
 import { atom } from 'recoil'
 
+export const sessionState = atom({
+  key: 'sessionState',
+  default: {
+    address: null,
+    email: null,
+    exp: null,
+    iat: null,
+    id: null,
+    name: null,
+    number: null
+  }
+})
+
 export const paquetesState = atom({
   key: 'paquetesState',
   default: [{

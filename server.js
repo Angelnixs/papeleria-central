@@ -2,12 +2,16 @@
 import express from 'express'
 import path from 'path'
 import { fileURLToPath } from 'url';
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+import cors from 'cors';
 
 const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename);
 
 const app = express()
+dotenv.config()
 
 // #############################################################################
 // This configures static hosting for files in /public that have the extensions
@@ -21,6 +25,15 @@ var options = {
   redirect: false
 }
 app.use(express.static('dist', options))
+
+app.get('/jwt', cors(), async (req, res) => {
+  try {
+    const decoded = jwt.verify(req.query.tkn, process.env.JWT_SECRET)    
+    res.send(decoded)  
+  } catch (error) {
+    console.log(error)
+  }
+})
 
 // Handles any requests that don't match the ones above
 app.get('*', (req,res) =>{

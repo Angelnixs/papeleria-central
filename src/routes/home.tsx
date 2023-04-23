@@ -9,9 +9,23 @@ import { useRecoilState } from 'recoil';
 import { paquetesState } from '../atoms';
 import { FC } from 'react';
 import PaqueteType from '../interfaces/paquete';
+import axios from 'axios'
+import React, { useEffect, useState } from 'react';
+
 
 const Home:FC = () => {
   const [paquetes, setPaquetes] = useRecoilState<any[]>(paquetesState);
+
+  useEffect(() => {
+    axios.get('https://healthy-vestments-tuna.cyclic.app/get-packages')
+    .then(({ data }) => {
+      setPaquetes(data.data)
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  }, []);
+
 
   return (
     <>

@@ -9,7 +9,7 @@ import Home from "./routes/home";
 import Carrito from "./routes/carrito";
 import Checkout from "./routes/checkout";
 import ListaPaquetes from "./routes/listaPaquetes";
-import Login from './routes/login';
+// import Login from './routes/login';
 import PaqueteView from './routes/paqueteView';
 import Pedido from './routes/admin/pedido';
 import Pedidos from './routes/admin/pedidos';
@@ -23,9 +23,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-  }, {
-    path: "/login",
-    element: <Login  />,
   }, {
     path: "/carrito",
     element: <Carrito  />,

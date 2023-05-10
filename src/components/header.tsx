@@ -3,12 +3,14 @@ import { FC, useState, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { sessionState } from '../atoms';
 import { Nav, Navbar, Dropdown, Button } from 'react-bootstrap';
-import LoginButton from "../components/log/loginButton";
 import LogoutButton from "../components/log/logoutButton";
+import GenericModal from '../components/genericModal'
+import Login from '../routes/login';
 import "../assets/styles/header.css"
 
 const Header:FC = () => {  
   const [session, setSession] = useRecoilState(sessionState);
+  const [modalShow, setModalShow] = useState(false);
 
   useEffect(() => {checkSession()}, []);
   const checkSession = () => {
@@ -41,7 +43,10 @@ const Header:FC = () => {
         <Nav>
           <Nav.Link href="/">Inicio</Nav.Link>
           <Nav.Link href="/listaPaquetes">Lista de Paquetes</Nav.Link>
-          <Nav.Link className='d-menu-show-mobile'><LoginButton/></Nav.Link>
+          <Nav.Link className='d-menu-show-mobile'>
+            <Button variant="secondary" onClick={() => setModalShow(true)}>
+              Iniciar Sesión
+            </Button></Nav.Link>
         </Nav>
       </Navbar.Collapse>
       <Dropdown className="mx-2 d-menu-hide-mobile me-3 pointer" autoClose="outside">
@@ -70,10 +75,15 @@ const Header:FC = () => {
               <Dropdown.ItemText ><LogoutButton/></Dropdown.ItemText>
             </div>
           : 
-            <Dropdown.ItemText ><LoginButton/></Dropdown.ItemText>
+            <Dropdown.ItemText >
+              <Button variant="dark" onClick={() => setModalShow(true)}>
+                Iniciar Sesión
+              </Button>
+            </Dropdown.ItemText>
           }          
         </Dropdown.Menu>
       </Dropdown>
+      <GenericModal show={modalShow} onHide={() => setModalShow(false)} ><Login/></GenericModal>
     </Navbar>
   );
 }

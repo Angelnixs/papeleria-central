@@ -22,7 +22,7 @@ const Footer:FC = () => {
               <ul>
                 <li className="contact">
                   <FontAwesomeIcon icon={faPhone} />
-                  <a href="tel:(010) 1234 4321">(010) 1234 4321</a>
+                  <a className='footer-link' href="tel:(010) 1234 4321">(010) 1234 4321</a>
                 </li>
                 <li className="contact"><FontAwesomeIcon icon={faMapMarker} />
                   1 / 105 Bay Lights,
@@ -38,11 +38,11 @@ const Footer:FC = () => {
               </div>
               <hr className="red" />
               <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Testimonial</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a className='footer-link' href="#">Home</a></li>
+                <li><a className='footer-link' href="#">About</a></li>
+                <li><a className='footer-link' href="#">Testimonial</a></li>
+                <li><a className='footer-link' href="#">Blog</a></li>
+                <li><a className='footer-link' href="#">Contact</a></li>
               </ul>
             </Col>
             <Col md={6} lg={3}>
@@ -51,19 +51,19 @@ const Footer:FC = () => {
               </div>
               <hr className="red" />
               <ul>
-                <li><a href="#">Lorem ipsum</a></li>
-                <li><a href="#">Dolor sit amet</a></li>
-                <li><a href="#">Consectetur Adipisicing </a></li>
-                <li><a href="#">Ed do eiusmod tempor incididunt</a></li>
+                <li><a className='footer-link' href="#">Lorem ipsum</a></li>
+                <li><a className='footer-link' href="#">Dolor sit amet</a></li>
+                <li><a className='footer-link' href="#">Consectetur Adipisicing </a></li>
+                <li><a className='footer-link' href="#">Ed do eiusmod tempor incididunt</a></li>
               </ul>
             </Col>
             <Col md={6} lg={4}>
               <div className="open-hours">
                 <h4>Open hours</h4>
                 <ul className="social-media">
-                  <li><a href="" target="_blank"><FontAwesomeIcon icon={faFacebook} /></a></li>
-                  <li><a href="" target="_blank"><FontAwesomeIcon icon={faInstagram} /></a></li>
-                  <li><a href="" target="_blank"><FontAwesomeIcon icon={faTwitter} /></a></li>
+                  <li><a className='footer-link' href="" target="_blank"><FontAwesomeIcon icon={faFacebook} /></a></li>
+                  <li><a className='footer-link' href="" target="_blank"><FontAwesomeIcon icon={faInstagram} /></a></li>
+                  <li><a className='footer-link' href="" target="_blank"><FontAwesomeIcon icon={faTwitter} /></a></li>
                 </ul>
               </div>
               <hr className="red" />
@@ -100,7 +100,7 @@ const Footer:FC = () => {
           <hr />
           <Row>
             <Col sm={4}>
-              <a href="">Privacy policy</a>
+              <a className='footer-link' href="">Privacy policy</a>
             </Col>
             <Col sm={8}>
               <p className="reserved">Lorem ipsum dolor sit amet @ 2019 All rights reserved</p>

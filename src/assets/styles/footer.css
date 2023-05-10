@@ -9,11 +9,11 @@ footer {
   background-image: linear-gradient( to bottom, #212529, #1e2c47 );
 }
 
-a {
+a.footer-link {
   color: white;
 }
 
-a:hover {
+a.footer-link:hover {
   color: #dc3545;
 }
 

@@ -1,9 +1,10 @@
 import { Button } from 'react-bootstrap';
 
 const LogoutButton = () => {
+
   const handleLogout = () => {
     document.cookie = "session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    window.location.href = '/';
+    location.reload()
   }
   return (
     <Button variant="dark" as="a" onClick={() => handleLogout()}>

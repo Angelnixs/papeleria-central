@@ -8,7 +8,7 @@ export default function HomeCarousel() {
           className="d-block w-100"
           src="/lb-banner.jfif"
           alt="First slide"
-          style={{ maxHeight: '450px' }}
+          style={{ maxHeight: '400px' }}
         />
         <Carousel.Caption>
           {/* <h5>First slide label</h5>
@@ -20,7 +20,7 @@ export default function HomeCarousel() {
           className="d-block w-100"
           src="/lb-banner-2.jpg"
           alt="Second slide"
-          style={{ maxHeight: '450px' }}
+          style={{ maxHeight: '400px' }}
         />
         <Carousel.Caption>
           {/* <h5>Second slide label</h5>
@@ -32,7 +32,7 @@ export default function HomeCarousel() {
           className="d-block w-100"
           src="/lb-info.jpg"
           alt="Third slide"
-          style={{ maxHeight: '450px' }}
+          style={{ maxHeight: '400px' }}
         />
         <Carousel.Caption>
           {/* <h5>Third slide label</h5>

@@ -79,7 +79,7 @@ const Header:FC = () => {
 
       <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between mx-3">
         <Nav>
-          <Nav.Link href="/"><Button variant="outline-light" size="sm" style={{width: 'max-content', border: 'none'}}>Colegios</Button></Nav.Link>
+          <Nav.Link href="/"><Button variant="outline-light" size="sm" style={{width: 'max-content', border: 'none'}}>Listas Escolares</Button></Nav.Link>
           <Nav.Link href="/"><Button variant="outline-light" size="sm" style={{width: 'max-content', border: 'none'}}>Productos</Button> </Nav.Link>
           {session.type === 1 &&
             <>

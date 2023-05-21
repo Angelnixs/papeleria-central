@@ -15,11 +15,10 @@ import Pedido from './routes/admin/pedido';
 import Pedidos from './routes/admin/pedidos';
 import Paquetes from './routes/admin/paquetes';
 import Productos from './routes/admin/productos';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
 import Header from "./components/header";
 import Footer from "./components/footer";
 import { ProtectedRoute } from './components/protectedRoute';
+import { Container } from 'react-bootstrap';
 
 const App = () => {
   const [ session, setSession ] = useRecoilState(sessionState);
@@ -33,7 +32,9 @@ const App = () => {
       axios.get(`${import.meta.env.VITE_API_FRONT}/jwt?tkn=${cookie}`).then((res: any)=>{
         setSession(res.data);
         setMount(true);
-      })
+      }).catch((err: any)=>{
+        setMount(true);
+      });
     }else{
       setMount(true);
     }
@@ -54,6 +55,10 @@ const App = () => {
     {
       path: "/",
       element: <Home />,
+      loader: async () => {
+        const data = await axios.get(`${import.meta.env.VITE_API}/get-packages`)
+        return data.data
+      },
     }, {
       path: "/carrito",
       element: <Carrito  />,
@@ -74,6 +79,7 @@ const App = () => {
       element: <ProtectedRoute><Pedidos /></ProtectedRoute>,
     }, {
       path: "/admin/paquetes",
+      errorElement : <h1>404</h1>,
       element: <ProtectedRoute><Paquetes /></ProtectedRoute>,
     }, {
       path: "/admin/productos",
@@ -84,7 +90,16 @@ const App = () => {
   return (
     <>
       <Header />
-      {mount && <RouterProvider router={router} />}
+      <div style={{minHeight: '80vh'}}>
+        {mount ? <RouterProvider router={router} />
+        : 
+          <div className="d-flex justify-content-center align-items-center" style={{height: '80vh'}}>
+            <div className="spinner-border text-primary" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        }
+      </div>
       <Footer />
     </>   
   )

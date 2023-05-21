@@ -8,24 +8,18 @@ import Paquete from '../components/paquete';
 import { useRecoilState } from 'recoil';
 import { paquetesState } from '../atoms';
 import { FC } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import PaqueteType from '../interfaces/paquete';
-import axios from 'axios'
 import { useEffect } from 'react';
 
 
 const Home:FC = () => {
   const [paquetes, setPaquetes] = useRecoilState<any[]>(paquetesState);
+  const cosas:any = useLoaderData()
   
   useEffect(() => {
-    axios.get('https://healthy-vestments-tuna.cyclic.app/get-packages')
-    .then(({ data }) => {
-      setPaquetes(data.data)
-    })
-    .catch(error => {
-      console.error(error);
-    });
-  }, []);
-
+    setPaquetes(cosas.data)    
+  }, [cosas]);
 
   return (
     <>
@@ -44,7 +38,7 @@ const Home:FC = () => {
                   name={p.name}
                   desc={p.desc}
                   price={p.price}
-                  img={p.img} />
+                  img={p.img || '/default.png'} />
               </Col>
             ))
           }

@@ -5,6 +5,10 @@ import { fileURLToPath } from 'url';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import multer from 'multer';
+import fs from 'fs';
+
+const upload = multer({ dest: 'uploads/' })
 
 const __filename = fileURLToPath(import.meta.url);
 
@@ -25,14 +29,41 @@ var options = {
   redirect: false
 }
 app.use(express.static('dist', options))
+app.use(cors())
 
 app.get('/jwt', cors(), async (req, res) => {
   try {
     const decoded = jwt.verify(req.query.tkn, process.env.JWT_SECRET)    
     res.send(decoded)  
   } catch (error) {
-    console.log(error)
+    res.status(401).send({ error: 'Not authorized to access this resource' })
   }
+})
+
+app.post('/upload-image', upload.single('image'), function (req, res, next) {
+  // req.file is the `avatar` file
+  // req.body will hold the text fields, if there were any
+  if (!req.file) {
+    res.status(400).send('No file uploaded');
+    return;
+  }
+  // Access the uploaded file via req.file
+  const { originalname, path: filePath } = req.file;
+
+  // Move the uploaded file to the desired folder (e.g., "public/images")
+  const targetFolder = path.join(__dirname, 'public', 'images');
+  const newFilePath = path.join(targetFolder, originalname);
+
+  fs.rename(filePath, newFilePath, (err) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Error occurred while moving file');
+      return;
+    }
+
+    // File upload successful
+    res.send({status: 'File uploaded', path: `/images/${originalname}`});
+  });
 })
 
 // Handles any requests that don't match the ones above

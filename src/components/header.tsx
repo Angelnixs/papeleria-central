@@ -83,9 +83,9 @@ const Header:FC = () => {
           <Nav.Link href="/"><Button variant="outline-light" size="sm" style={{width: 'max-content', border: 'none'}}>Productos</Button> </Nav.Link>
           {session.type === 1 &&
             <>
-              <Nav.Link href="/admin/paquetes"><Button variant="outline-light" size="sm" style={{width: 'max-content', border: 'none'}}>Editar Paquetes</Button></Nav.Link>
-              <Nav.Link href="/admin/productos"><Button variant="outline-light" size="sm" style={{width: 'max-content', border: 'none'}}>Editar Productos</Button></Nav.Link>
-              <Nav.Link href="/admin/pedidos"><Button variant="outline-light" size="sm" style={{width: 'max-content', border: 'none'}}>Ver Pedidos</Button></Nav.Link>
+              <Nav.Link href="/admin/paquetes"><Button variant="outline-light" size="sm" style={{width: 'max-content', border: 'none'}}>Administrar Paquetes</Button></Nav.Link>
+              <Nav.Link href="/admin/productos"><Button variant="outline-light" size="sm" style={{width: 'max-content', border: 'none'}}>Administrar Productos</Button></Nav.Link>
+              <Nav.Link href="/admin/pedidos"><Button variant="outline-light" size="sm" style={{width: 'max-content', border: 'none'}}>Administrar Pedidos</Button></Nav.Link>
             </>
           }
         </Nav>
